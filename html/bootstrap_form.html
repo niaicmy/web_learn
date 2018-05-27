@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>bootstrap form</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
 </head>
 <body>
 
@@ -12,11 +13,13 @@
             <legend>分组一</legend>
             <div class="form-group">
                 <div class="input-group">
-                    <input type="text" id="money" name="money" class="form-control"><label for="money"><span
-                        class="input-group-addon">$</span></label>
+                    <label class="input-group-addon" for="money">$</label>
+                    <input type="text" id="money" name="money" class="form-control">
+                    <label class="input-group-addon" for="money">$</label>
                 </div>
             </div>
         </fieldset>
+
         <div class="form-group">
             <label for="name" class="sr-only-focusable">姓名: </label><input type="text" id="name" name="username">
         </div>
@@ -67,22 +70,9 @@
         <input type="submit" value="提交"><input type="reset">
     </form>
 </div>
-
-<!--<div>-->
-    <!--<form class="bs-example-form" role="form">-->
-        <!--<div class="input-group">-->
-            <!--<label><span class="input-group-addon">@@</span><input type="search" class="form-control"></label>-->
-        <!--</div>-->
-
-        <!--<div class="input-group">-->
-            <!--<span class="input-group-addon">@</span>-->
-            <!--<input type="text" class="form-control" placeholder="twitterhandle">-->
-        <!--</div>-->
-
-    <!--</form>-->
-<!--</div>-->
-<div style="padding: 100px 100px 10px;">
-	<form class="bs-example bs-example-form" role="form">
+<div class="clearfix"></div>
+<div class="form-control">
+	<form class="form-group" role="form">
 		<div class="input-group">
 			<span class="input-group-addon">@</span>
 			<input type="text" class="form-control" placeholder="twitterhandle">
