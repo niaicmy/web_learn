@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap form</title>
+</head>
+<body>
+
+<div>
+    <form class="form-control" role="form" action="" method="get">
+        <fieldset>
+            <legend>分组一</legend>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" id="money" name="money" class="form-control"><label for="money"><span
+                        class="input-group-addon">$</span></label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <label for="name" class="sr-only-focusable">姓名: </label><input type="text" id="name" name="username">
+        </div>
+        <div class="form-group">
+            <label for="pwd">密码: </label><input type="password" id="pwd" name="pwd">
+        </div>
+        <div class="checkbox">
+            <!--设置同一个name 绑定一组-->
+            <label>选择1<input type="checkbox" name="check" value="1"></label>
+            <label>选择2<input type="checkbox" name="check" value="2"></label>
+            <label>选择3<input type="checkbox" name="check" value="3"></label>
+            <label>选择4<input type="checkbox" name="check" value="4" checked></label>
+        </div>
+
+        <div class="form-group">
+            <!--======select======-->
+            <label>多选值: <select name="sel" size="4" multiple>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+            </label>
+
+            <!--=====  datalist ======-->
+            <label>data list :<input type="text" list="datalist" value="" name="datalist"></label>
+            <datalist id="datalist">
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+            </datalist>
+
+            <!--===分组多选===-->
+            <label class="control-label">分组select<select name="selmut">
+                <optgroup label="选1">
+                    <option>3</option>
+                    <option>33</option>
+                </optgroup>
+                <optgroup label="选2">
+                    <option>5</option>
+                    <option>55</option>
+                    <option>555</option>
+                </optgroup>
+            </select>
+            </label>
+        </div>
+        <input type="submit" value="提交"><input type="reset">
+    </form>
+</div>
+
+<!--<div>-->
+    <!--<form class="bs-example-form" role="form">-->
+        <!--<div class="input-group">-->
+            <!--<label><span class="input-group-addon">@@</span><input type="search" class="form-control"></label>-->
+        <!--</div>-->
+
+        <!--<div class="input-group">-->
+            <!--<span class="input-group-addon">@</span>-->
+            <!--<input type="text" class="form-control" placeholder="twitterhandle">-->
+        <!--</div>-->
+
+    <!--</form>-->
+<!--</div>-->
+<div style="padding: 100px 100px 10px;">
+	<form class="bs-example bs-example-form" role="form">
+		<div class="input-group">
+			<span class="input-group-addon">@</span>
+			<input type="text" class="form-control" placeholder="twitterhandle">
+		</div>
+		<br>
+		<div class="input-group">
+			<input type="text" class="form-control">
+			<span class="input-group-addon">.00</span>
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">$</span>
+			<input type="text" class="form-control">
+			<span class="input-group-addon">.00</span>
+		</div>
+	</form>
+</div>
+<script type="text/javascript" src="../js/bootstrap/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap/bootstrap.js"></script>
+</body>
+</html>
