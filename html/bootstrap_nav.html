@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap nav</title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <style>
+        .dropdown-menu{
+            min-width: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="nav nav-pills">
+                <!--主要是nav 下面的 a 标签有样式-->
+                <!--直接写li 作用不大-->
+                <li role="presentation"><a href="#">1234</a></li>
+                <li role="presentation"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#">Profile</a></li>
+                <li role="presentation"><a href="#">Messages</a></li>
+
+                <li role="presentation">
+                    <!--data-target="#navmenu" 有这句不会弹出菜单-->
+                    <a class="dropdown-toggle" data-toggle="dropdown"  href="javascript:void(0);">
+                        Dropdown <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a>2</a></li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!--TODO: 下拉与上面的菜单对齐的实验-->
+        <div class="col-md-4">
+            <ul class="nav nav-pills">
+                <li><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true">
+                    demo<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a>22</a></li>
+                        <li><a>33</a></li>
+                        <li><a>44</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/bootstrap/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap/bootstrap.js"></script>
+</body>
+</html>
