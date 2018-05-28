@@ -8,23 +8,22 @@
 <body>
 <div>
     <div>
-        <form class="form-inline" role="form">
+        <form role="form">
             <div class="form-group">
                 <div class="input-group">
-                    <label class="input-group-addon control-label" for="text1">姓名：</label>
+                    <label class="input-group-addon" for="text1">姓名：</label>
                     <input type="text" id="text1" class="form-control" name="username">
                 </div>
             </div>
             <br/>
             <div class="form-group">
                 <div class="input-group">
-                    <label class="input-group-addon control-label" for="pwd">密码：</label>
+                    <label class="input-group-addon" for="pwd">密码：</label>
                     <input type="password" id="pwd" name="pwd" class="form-control">
                 </div>
                 <p class="help-block col-md-2 text-center">帮助</p>
             </div>
-            <div class="clearfix"></div>
-
+            <br>
             <div class="form-group">
                 <label for="name" class="control-label">名称：</label>
                 <input type="text" class="form-control" id="name" placeholder="请输入名称">
@@ -32,12 +31,54 @@
         </form>
     </div>
 </div>
-
 <div>
     <form class="form-inline" role="form">
+        <div class="input-group">
+            <label for="te" class="input-group-addon">%%%%</label>
+            <input type="text" id="te" name="te" class="form-control">
+        </div>
 
+        <div class="input-group">
+            <label class="control-label input-group-addon" for="colt">标记 col-md-2</label>
+            <input type="text" id="colt" class="form-control">
+        </div>
     </form>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <label class="control-label input-group-addon"></label><input type="search" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="glyphicon glyphicon-user input-group-addon"></span>
+                    <input type="text" class="form-control" placeholder="用户名">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    成功！很好地完成了提交。
+</div>
+
+<!--========= 输入框内置图标 =====-->
+<!--==栅格系统限制长度 + input-group 组合 ==-->
+<div class="row">
+    <div class="col-md-3">
+        <div class="input-group">
+            <label class="input-group-addon" for="user">用户名:</label>
+            <input class="form-control" id="user" type="text" placeholder="用户名">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+    </div>
+</div>
+
+
 <script src="../js/bootstrap/jquery-3.3.1.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 </body>
