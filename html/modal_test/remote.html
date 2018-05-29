@@ -1,4 +1,3 @@
-
 <!--====远程modal页面 填充预留的modal===-->
 <div class="modal-header">
     <span class="close" data-dismiss="modal">&times;</span>
@@ -42,6 +41,13 @@
             // alert("cancel....")
             if (confirm("未登录,确认关闭?")) {
                 $("#mymodal2").modal("hide");
+            }
+            else {
+                $("#mymodal2").on("hidden.bs.modal", function () {
+                    $(this).removeData("bs.modal");
+                    // https://blog.csdn.net/kewanjun_lcx/article/details/54748286
+                    $(this).find(".modal-content").children().remove();
+                });
             }
         });
         // 远程加载modal

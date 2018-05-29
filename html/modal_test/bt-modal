@@ -1,0 +1,140 @@
+关于BootStrap中Modal（模态框）使用心得
+一、modal使用：
+
+1.1、登录bootstrap官网，点击下载Bootstrap
+
+1.2、导入对应的样式文件css
+
+1.3、导入对应的js，需要导入bootstrap.js或者bootstrap.min.js文件，bootstrap的前提是jquery，所以我们要在导入bootstrap.js前面导入jquery.min.js
+
+对应导入代码：
+
+<!--导入样式-->
+<link href="Bootstrap/css/bootstrap-theme.css" rel="stylesheet"/>
+<link href="Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<!--导入bootstrap.js包-->
+<script src="jquery/jquery-3.1.1.min.js"></script>
+<script src="Bootstrap/js/bootstrap.min.js"></script>
+
+1.4、从官网找到一个案例使用：
+
+<h2>创建模态框（Modal）</h2>
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+           </div>
+           <div class="modal-body">在这里添加一些文本</div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+               <button type="button" class="btn btn-primary">提交更改</button>
+           </div>
+       </div><!-- /.modal-content -->
+   </div><!-- /.modal -->
+</div>
+
+二、modal打开：
+
+2.1、静态打开：通过data属性打开隐藏模态框
+
+设置按钮button的data-toggle:"modal"（以模态框的形式打开），data-target:"#myModal"（设置为modal的id）
+
+2.2、动态打开：以jquery代码为例
+
+$("#myModal").modal({
+
+remote:"test/test.jsp";//可以填写一个url，会调用jquery load方法加载数据
+
+backdrop:"static";//指定一个静态背景，当用户点击背景处，modal界面不会消失
+
+keyboard:true;//当按下esc键时，modal框消失
+
+})
+
+remote处可以填写jsp路径或者html路径，用来给modal框注入内容
+
+2.3、动态打开事件：
+
+在modal框加载同时，提供几个方法用来控制modal框
+
+$("#myModal").on("loaded.bs.modal",function{
+
+//在模态框加载的同时做一些动作
+
+});
+
+$("#myModal").on("show.bs.modal",function{
+
+//在show方法后调用
+
+});
+
+
+$("#myModal").on("shown.bs.modal",function{
+
+//在模态框完全展示出来做一些动作
+
+});
+
+$("#myModal").on("hide.bs.modal",function{
+
+//hide方法后调用
+
+});
+
+$("#myModal").on("hiden.bs.modal",function{
+
+//监听模态框隐藏事件做一些动作
+
+});
+
+2.4、解决remote只加载一次问题：
+我们在使用js动态打开modal框使用remote请求数据，只会加载一次数据，所以我们需要在每次打开modal框钱移除节点数据。
+
+解决方案：
+
+$("#myModal").on("hiden.bs.modal",function{
+
+$(this).removeData("bs.modal");
+
+});
+
+2.5、解决事件监听多次：
+
+第一次打开modal框正常，第二次，第三次，第n次打开就有可能会出现事件监听多次的奇怪问题（尤其是多个modal窗口叠加，出现这种问题的几率更高，我大致判断有可能是组件bug），所以无奈之举的办法，只适合应急使用：就是强行让他只调用监听一次
+
+int count = 0 ;
+
+
+$("#myModal").on("loaded.bs.modal",function{
+
+if(++count == 1){
+
+//调用你需要的方法
+
+}
+
+//在模态框加载的同时做一些动作
+
+});
+
+
+总结：modal框是个很好用的组件，不过官方文档提醒最好不要多个modal叠加很容易出现很难解决的前端组件问题
+
+=====================
+设置bootstrap modal模态框的宽度和宽度
+(1)修改宽度可以通过修改modal中的modal-dialog这个div宽度实现
+(2)修改高度和宽度最好的办法是修改modal-body中添加的控件，设置控件的大小，modal会自动适应。
+
+远程加载modal
+https://blog.csdn.net/mrhaoxiaojun/article/details/53219333
+
+显示相同内容
+https://blog.csdn.net/z_qifa/article/details/74202812
