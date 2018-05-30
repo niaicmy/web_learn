@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap modal</title>
+    <link type="text/css" rel="stylesheet" href="../../css/bootstrap/bootstrap.css">
+</head>
+<body>
+<div class="modal fade in" id="mymodal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--data-dismiss="modal" 位置要注意-->
+                <span class="close" data-dismiss="modal">&times;</span>
+                <div class="modal-title text-center">标题栏</div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <form class="form-group-sm" id="main" action="" method="get">
+                            <div class="input-group">
+                                <label for="username" class="control-label input-group-addon">用户名：</label>
+                                <input type="text" class="form-control" name="username" id="username"
+                                       placeholder="请输入用户名：">
+                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            </div>
+                        </form>
+                        <!--<div class="col-md-4"></div>-->
+                    </div>
+                </div>
+                <!--<form class="form-group" id="main" action="" method="get">-->
+                <!--<div class="input-group">-->
+                <!--<label for="username" class="control-label input-group-addon">用户名：</label>-->
+                <!--<input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名：">-->
+                <!--<span class="glyphicon glyphicon-user form-control-feedback"></span>-->
+                <!--</div>-->
+                <!--</form>-->
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="提交" form="main">
+            </div>
+        </div>
+    </div>
+</div>
+<!--=== 注意 data-backdrop 位置-->
+<button class="btn btn-info" data-toggle="modal" data-target="#mymodal" data-backdrop="static">弹出按钮</button>
+<button class="btn btn-info" data-backdrop="static" id="btn-remote">弹出远程modal</button>
+
+<script type="text/javascript" src="../../js/bootstrap/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../js/bootstrap/bootstrap.js"></script>
+
+<script type="text/javascript">
+    // ==远程加载modal ==
+    $(function () {
+        $("#mymodal").on("hide.bs.modal", function () {
+            alert("关闭~");
+            //  失败阻止关闭模态框
+            return false;
+        });
+        // TODO:远程加载modal
+        $("#btn-remote").on("click", function () {
+
+        });
+    });
+</script>
+</body>
+</html>
