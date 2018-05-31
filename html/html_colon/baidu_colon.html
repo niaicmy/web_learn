@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>baidu colon</title>
+    <link rel="stylesheet" href="../../css/bootstrap/bootstrap.css">
+    <script src="../../js/bootstrap/jquery-3.3.1.js"></script>
+    <script src="../../js/bootstrap/bootstrap.js"></script>
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--注意格式-->
+    <!--[if lt IE 9]>
+      <!--<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>-->
+    <!--<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+    <!--注意下面格式-->
+    <![endif]-->
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" style="height: 40px">
+
+        </div>
+        <div class="col-md-6" style="height: 40px">
+            <ul class="nav nav-pills navbar-right navbar-text">
+                <li><a title="新闻" href="javascript:void(0);">新闻</a></li>
+                <li><a title="hao123" href="javascript:void(0);">hao123</a></li>
+                <li><a title="地图" href="javascript:void(0);">地图</a></li>
+                <li><a title="视频" href="javascript:void(0);">视频</a></li>
+                <li><a title="贴吧" href="javascript:void(0);">贴吧</a></li>
+                <li><a title="学术" href="javascript:void(0);">学术</a></li>
+                <li><a title="登录" href="javascript:void(0);">登录</a></li>
+                <li><a href="javascript:void(0);" data-toggle="popover" id="setting">设置</a></li>
+                <li><a title="更多产品" href="javascript:void(0);">更多产品</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#setting").popover({
+            // trigger: "hover",
+            trigger: "manual",
+            html: true,
+            content: "<p style='width: 58px'><a>搜索设置</a></p>" +
+            "<p><a>高级搜索</a></p>" +
+            "<p><a>关闭预测</a></p>" +
+            "<p><a>搜索历史</a></p>",
+            placement: "bottom",
+            // delay: {show: 500, hide: 1000}
+        }).on("mouseenter", function () {
+            $(this).popover("show");
+            }).on("mouseleave",function () {
+                console.log("leave a");
+                // $(this).popover("hide");
+
+            // TODO: 需要解决 关闭缺陷问题
+            $(".popover").on("mouseleave", function () { // 注意 mouseout(离开一个触发一次，有几个触发几次) 跟 mouseleave（离开全部触发一次） 事件的区别
+                    console.log("close popver");
+                    $("#setting").popover("hide");
+                    v = false;
+                });
+        });
+
+
+    });
+</script>
+</body>
+</html>

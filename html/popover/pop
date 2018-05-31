@@ -15,3 +15,32 @@ $(document).ready(function() {
 $('#element').popover('show');
 $('#element').popover('hide');
 $('#element').popover('destroy')
+
+/////////////////////////////////
+
+<script type="text/javascript">
+    $(function () {
+        $("#setting").popover({
+            // trigger: "hover",
+            trigger: "manual",
+            html: true,
+            content: "<p style='width: 58px'><a>搜索设置</a></p>" +
+            "<p><a>高级搜索</a></p>" +
+            "<p><a>关闭预测</a></p>" +
+            "<p><a>搜索历史</a></p>",
+            placement: "bottom",
+            // delay: {show: 500, hide: 1000}
+        }).on("mouseenter", function () {
+            $(this).popover("show");
+            }).on("mouseleave",function () {
+                console.log("leave a");
+                // $(this).popover("hide");
+            $(".popover").on("mouseleave", function () { // 注意 mouseout(离开一个触发一次，有几个触发几次) 跟 mouseleave（离开全部触发一次） 事件的区别
+                    console.log("close popver");
+                    $("#setting").popover("hide");
+                })
+        });
+
+
+    });
+</script>
