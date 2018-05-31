@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap popver</title>
+    <link rel="stylesheet" href="../../css/bootstrap/bootstrap.css">
+    <script src="../../js/bootstrap/jquery-3.3.1.js"></script>
+    <script src="../../js/bootstrap/bootstrap.js"></script>
+</head>
+<body style="margin: 50px">
+
+<!--===使用的弹出框====-->
+<button class="btn btn-primary"
+        type="button" data-toggle="popover"
+        title="弹出框" data-placement="bottom" data-trigger="hover">弹出button
+</button>
+
+<a class="glyphicon glyphicon-plus" data-toggle="popover"></a>
+
+<script type="text/javascript">
+    $(function () {
+        $("button").popover({
+            content: $("button").text,
+        });
+        // let con = $("a").prop("class");
+        con = "<p class='text-capitalize'>text</p>";
+        console.log(con);
+        $("a").popover({
+            trigger: "hover",
+            placement: "bottom",
+            // html: false, // false时 html 代码不转义,照原文输出
+            html: true,
+            content: con, // 奇怪的函数属性$(this).attr("class") 未能获取属性
+            // container: $("button"), // 把本popover 内容追加到另外的里面
+        });
+    });
+</script>
+</body>
+</html>
